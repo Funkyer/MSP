@@ -3,8 +3,9 @@ package com.funkyer.common.domain;
 /**
  * Created by dell on 17-3-27.
  */
-public class MspException extends Exception
+public class MspException extends RuntimeException
 {
+    
     private String errorCode;
 
     private String message;
