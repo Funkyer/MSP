@@ -5,7 +5,7 @@ package com.funkyer.common.domain;
  */
 public class MspException extends RuntimeException
 {
-    
+
     private String errorCode;
 
     private String message;
@@ -26,5 +26,13 @@ public class MspException extends RuntimeException
     {
         super(message,cause);
         this.errorCode = errorCode;
+    }
+
+    @Override
+    public String toString() {
+        return "MspException{" +
+                "errorCode='" + errorCode + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }
