@@ -13,6 +13,11 @@
         <artifactId>content-api</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+        <groupId>com.funkyer</groupId>
+        <artifactId>common-jdbc</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
 </dependencies>
 
 </project>
