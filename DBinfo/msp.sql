@@ -9,7 +9,7 @@ USE `msp` ;
 -- Table `msp`.`t_content`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `msp`.`t_content` (
-  `id` INT NOT NULL ,
+  `id` VARCHAR(128) NOT NULL ,
   `name` VARCHAR(128) NOT NULL ,
   `introduce` VARCHAR(256) NULL ,
   `lang` VARCHAR(45) NULL ,

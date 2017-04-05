@@ -7,7 +7,7 @@
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:jdbc.properties</value>
+                <value>classpath:/META-INF/jdbc.properties</value>
             </list>
         </property>
     </bean>
@@ -21,8 +21,16 @@
 
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
         <property name="configLocation">
-            <value>sqlMapConfig.xml</value>
+            <value>classpath:/META-INF/sqlMap/sqlMapConfig.xml</value>
         </property>
-
+    </bean>
+    
+    <bean id="jdbc.JdbcTemplate" class="com.funkyer.jdbc.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="sqlMapClient" ref="sqlMapClient"/>
+    </bean>
+    <bean id="jdbc.vodspi" class="com.funkyer.jdbc.VodSpi">
+        <property name="jdbcTemplate" ref="jdbc.JdbcTemplate"/>
+        
     </bean>
 </beans>

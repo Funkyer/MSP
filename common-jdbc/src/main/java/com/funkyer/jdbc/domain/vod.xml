@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap >
+    <typeAlias type="com.funkyer.jdbc.domain.Vod" alias="vod"/>
+    <resultMap id="vodRecord" class="vod" >
+        <result column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="vodType" property="vodType" jdbcType="int" />
+    </resultMap>
+
+    <insert id="VodInsertSQL" parameterClass="vod">
+      insert into t_content (id,name,vodType) values (#id#,#name#,#vodType#)
+   </insert>
+
+</sqlMap>
