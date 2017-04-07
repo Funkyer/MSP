@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
-<sqlMap >
-    <typeAlias type="com.funkyer.jdbc.domain.Vod" alias="vod"/>
-    <resultMap id="vodRecord" class="vod" >
-        <result column="id" property="id" jdbcType="VARCHAR" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="vodType" property="vodType" jdbcType="int" />
-    </resultMap>
+<sqlMap>
+	<typeAlias type="com.funkyer.jdbc.domain.Vod" alias="vod" />
+	<resultMap id="vodRecord" class="vod">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="vodType" property="vodType" jdbcType="int" />
+		<result column="introduce" property="introduce" jdbcType="VARCHAR" />
+		<result column="detailType" property="detailType" jdbcType="VARCHAR" />
+		<result column="artist" property="artist" jdbcType="VARCHAR" />
+		<result column="particularDate" property="particularDate"
+			jdbcType="VARCHAR" />
+		<result column="poster" property="poster" jdbcType="VARCHAR" />
 
-    <insert id="VodInsertSQL" parameterClass="vod">
-      insert into t_content (id,name,vodType) values (#id#,#name#,#vodType#)
-   </insert>
+	</resultMap>
 
+	<insert id="VodInsertSQL" parameterClass="vod">
+		insert into t_content
+		(id,name,vodType,introduce,detailType,artist,particularDate,poster)
+		values
+		(#id#,#name#,#vodType#,#introduce#,#detailType#,#artist#,#particularDate#,#poster#)
+	</insert>
+
+	<delete id="VodDeleteSQL" parameterClass="vod">
+	    delete from t_content where id=#id#
+	</delete>
+	
+	<select id="VodQuerySQL" parameterClass="vod" resultMap="vodRecord">
+	    select id,name,vodType,introduce,detailType,artist,particularDate,poster from t_content where id=#id#
+	</select>
 </sqlMap>
