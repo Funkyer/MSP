@@ -5,7 +5,11 @@ package com.funkyer.msp.api.dto;
  */
 public class PlayVodResponse extends BaseResponse
 {
-    private String playUrl;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String playUrl;
 
     public String getPlayUrl() {
         return playUrl;

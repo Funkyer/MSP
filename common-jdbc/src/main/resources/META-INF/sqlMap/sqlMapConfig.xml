@@ -7,7 +7,6 @@
     enhancementEnabled="true" 
     maxTransactions="10"  
     maxRequests="32" 
-    maxTransactions="5" 
     lazyLoadingEnabled="true" 
     maxSessions="20" />
 <sqlMap resource="com/funkyer/jdbc/domain/vod.xml" />

@@ -14,4 +14,6 @@ public interface VodService
      * @return PlayVodResponse
      */
     public PlayVodResponse play(PlayVodRequest request);
+    
+    public String test();
 }
