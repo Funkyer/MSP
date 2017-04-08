@@ -43,10 +43,10 @@
         <version>0.1.4</version>
         <scope>compile</scope>
     </dependency>
-    <dependency>
+   <!-- <dependency>
         <groupId>springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>1.2.6</version>
-    </dependency>
+    </dependency>-->
 </dependencies>
 </project>
