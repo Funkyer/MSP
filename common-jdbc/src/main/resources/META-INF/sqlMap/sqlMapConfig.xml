@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig> 
+<settings 
+    cacheModelsEnabled="true" 
+    enhancementEnabled="true" 
+    maxTransactions="10"  
+    maxRequests="32" 
+    maxTransactions="5" 
+    lazyLoadingEnabled="true" 
+    maxSessions="20" />
+<sqlMap resource="com/funkyer/jdbc/domain/vod.xml" />
+</sqlMapConfig>
