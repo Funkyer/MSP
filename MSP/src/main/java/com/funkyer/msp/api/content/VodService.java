@@ -13,7 +13,6 @@ public interface VodService
      * @param request
      * @return PlayVodResponse
      */
-    public PlayVodResponse play(PlayVodRequest request);
+    public PlayVodResponse play(String id);
     
-    public String test();
 }

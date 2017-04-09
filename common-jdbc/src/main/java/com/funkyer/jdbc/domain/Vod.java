@@ -108,6 +108,13 @@ public class Vod
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-    
+
+	@Override
+	public String toString() {
+		return "Vod [id=" + id + ", introduce=" + introduce + ", name=" + name
+				+ ", vodType=" + vodType + ", detailType=" + detailType
+				+ ", artist=" + artist + ", particularDate=" + particularDate
+				+ ", poster=" + poster + "]";
+	}
     
 }
