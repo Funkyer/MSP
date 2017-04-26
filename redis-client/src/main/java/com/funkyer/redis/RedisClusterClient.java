@@ -3,28 +3,35 @@ package com.funkyer.redis;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.InitializingBean;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPoolConfig;
 
-public class RedisClusterClient 
+public class RedisClusterClient implements InitializingBean
 {
-	private Set<HostAndPort> clusterNode ;
+	private String redisCluster;
+
+	private JedisCluster jedisCluster;
+
+	private Set<HostAndPort> clusterNode =  new HashSet<HostAndPort>(); ;
 	private JedisPoolConfig config;
-	
-	private static final String host = "192.168.1.102";
-	
-	private void genClusterNode()
+
+	public void afterPropertiesSet() throws Exception
 	{
-		clusterNode = new HashSet<HostAndPort>();
-		clusterNode.add(new HostAndPort(host, 8190));
-		clusterNode.add(new HostAndPort(host, 8191));
-		clusterNode.add(new HostAndPort(host, 8192));
-		clusterNode.add(new HostAndPort(host, 8193));
-		clusterNode.add(new HostAndPort(host, 8194));
-		clusterNode.add(new HostAndPort(host, 8195));
+		if(StringUtils.isNotBlank(redisCluster))
+		{
+			String[] hostAndPorts = redisCluster.split(";");
+			for(String hostAndPort : hostAndPorts)
+			{
+				String[] hp = hostAndPort.split(":");
+				clusterNode.add(new HostAndPort(hp[0], Integer.parseInt(hp[1])));
+			}
+		}
+		genJadisConfig();
+		jedisCluster = new JedisCluster(clusterNode,5000,config);
 	}
-	
 	private void genJadisConfig()
 	{
 		config = new JedisPoolConfig();
@@ -32,16 +39,16 @@ public class RedisClusterClient
 		config.setMaxTotal(100);
 		config.setTestOnBorrow(true);
 	}
-	public JedisCluster clusterInit()
-	{
-		genClusterNode();
-		genJadisConfig();
-		return new JedisCluster(clusterNode,5000,config);
+
+	public void setRedisCluster(String redisCluster) {
+		this.redisCluster = redisCluster;
 	}
 
-	public static void main(String[] args) {
-		RedisClusterClient redisClusterClient = new RedisClusterClient();
-		JedisCluster redis = redisClusterClient.clusterInit();
-		redis.set("ls","liushi");
+	public JedisCluster getJedisCluster() {
+		return jedisCluster;
+	}
+
+	public void setJedisCluster(JedisCluster jedisCluster) {
+		this.jedisCluster = jedisCluster;
 	}
 }
