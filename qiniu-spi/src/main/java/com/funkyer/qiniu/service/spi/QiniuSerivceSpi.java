@@ -4,6 +4,11 @@ package com.funkyer.qiniu.service.spi;
  * Created by dell on 17-3-27.
  */
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import org.springframework.util.StringUtils;
+
 import com.funkyer.qiniu.service.QiniuService;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
@@ -23,7 +28,7 @@ public class QiniuSerivceSpi implements QiniuService
     private String SECRET_KEY;
 
     private Auth auth= Auth.create(ACCESS_KEY, SECRET_KEY);
-
+    String bucket = "liushi";
 
     @Override
     public String getUrl(String name) {
@@ -42,17 +47,46 @@ public class QiniuSerivceSpi implements QiniuService
             //参数三：marker    上一次获取文件列表时返回的 marker
             //参数四：limit     每次迭代的长度限制，最大1000，推荐值 100
             //参数五：delimiter 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。缺省值为空字符串
-            FileListing fileListing = bucketManager.listFiles(bucket, name, null, 10, null);
+        	FileListing fileListing = bucketManager.listFiles(bucket, name, null, 10, null);
+        	
             FileInfo[] items = fileListing.items;
             for (FileInfo fileInfo : items)
             {
-                return fileInfo.key;
+                System.out.println( fileInfo.key);
+                System.out.println( fileInfo.endUser);
+            }
+            while(!StringUtils.isEmpty(fileListing.marker))
+            {
+            	fileListing = bucketManager.listFiles(bucket, name, fileListing.marker, 10, null);
+            	
+                items = fileListing.items;
+                for (FileInfo fileInfo : items)
+                {
+                    System.out.println( fileInfo.key);
+                    System.out.println( fileInfo.mimeType);
+                }
             }
         } catch (QiniuException e) {
 
         }
 
         return null;
+    }
+    
+    public void getFileDetail()
+    {
+    	Configuration cfg = new Configuration(Zone.zone0());
+
+    	BucketManager bucketManager = new BucketManager(auth, cfg);
+    	try {
+    	    FileInfo fileInfo = bucketManager.stat(bucket, "麗美 - A Winter Story.mp3");
+    	    System.out.println(fileInfo.hash);
+    	    System.out.println(fileInfo.fsize);
+    	    System.out.println(fileInfo.mimeType);
+    	    System.out.println(fileInfo.putTime);
+    	} catch (QiniuException ex) {
+    	    System.err.println(ex.response.toString());
+    	}
     }
 
     public void setACCESS_KEY(String ACCESS_KEY) {
@@ -62,4 +96,5 @@ public class QiniuSerivceSpi implements QiniuService
     public void setSECRET_KEY(String SECRET_KEY) {
         this.SECRET_KEY = SECRET_KEY;
     }
+    
 }
