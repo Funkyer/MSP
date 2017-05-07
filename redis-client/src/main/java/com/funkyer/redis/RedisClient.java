@@ -14,17 +14,18 @@ public class RedisClient
     private String prefix;
     private RedisClusterClient redisClusterClient;
 
-    public void set(String key,String value)
+
+    public void set(String key,Object object)
     {
         byte[] keys = getKeys(key);
-        byte[] values = SafeEncoder.encode(value);
-        getJedisCluster().set(keys,values);
+        byte[] serializeObject = SerializeUtil.serialize(object);
+        getJedisCluster().set(keys,serializeObject);
     }
 
-    public String get(String key)
+    public Object get(String key)
     {
         byte[] keys = getKeys(key);
-       return SafeEncoder.encode(getJedisCluster().get(keys));
+        return SerializeUtil.unserialize(getJedisCluster().get(keys));
     }
 
     public void hmset(String key,Map map)

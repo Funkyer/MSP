@@ -31,14 +31,13 @@ public class QiniuSerivceSpi implements QiniuService
     String bucket = "liushi";
 
     @Override
-    public String getUrl(String name) {
+    public String getUrl(String name,String bucket) {
 
         Zone z = Zone.zone0();
         Configuration c = new Configuration(z);
 
         //实例化一个BucketManager对象
         BucketManager bucketManager = new BucketManager(auth, c);  //要列举文件的空间名
-        String bucket = "liushi";
 
         try {
             //调用listFiles方法列举指定空间的指定文件
@@ -96,5 +95,5 @@ public class QiniuSerivceSpi implements QiniuService
     public void setSECRET_KEY(String SECRET_KEY) {
         this.SECRET_KEY = SECRET_KEY;
     }
-    
+
 }

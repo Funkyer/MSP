@@ -17,6 +17,5 @@
     <bean id="qiniu.spi.QiniuSerivceSpi" class="com.funkyer.qiniu.service.spi.QiniuSerivceSpi">
         <property name="ACCESS_KEY" value="${ACCESS_KEY}"></property>
         <property name="SECRET_KEY" value="${SECRET_KEY}"></property>
-
     </bean>
 </beans>

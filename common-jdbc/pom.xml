@@ -28,15 +28,15 @@
                     <include>**/*.xml</include>
                 </includes>
                 <!-- 是否替换资源中的属性-->
-                <filtering>false</filtering>
+                <filtering>true</filtering>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
                     <includes> 
                         <include>**/*.properties</include>
                         <include>**/*.xml</include> 
-                    </includes>>
-                    <filtering>false</filtering>
+                    </includes>
+                    <filtering>true</filtering>
             </resource>
         </resources>
     </build>

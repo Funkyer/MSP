@@ -7,19 +7,8 @@ package com.funkyer.jdbc.domain;
  * @author dell
  *
  */
-public class Vod
+public class Vod extends Content
 {
-	private String id;
-
-	/**
-	 * 简介
-	 */
-	private String introduce;
-	/**
-	 * 名称
-	 */
-    private String name;
-    
     /**
      * 类型
      */
@@ -45,21 +34,11 @@ public class Vod
      */
     private String poster;
 
-    public String getId() {
-        return id;
-    }
+	/**
+	 * 时长
+	 */
+	private long duration;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getVodType() {
         return vodType;
@@ -69,13 +48,6 @@ public class Vod
         this.vodType = vodType;
     }
 
-	public String getIntroduce() {
-		return introduce;
-	}
-
-	public void setIntroduce(String introduce) {
-		this.introduce = introduce;
-	}
 
 	public String getDetailType() {
 		return detailType;
@@ -109,12 +81,23 @@ public class Vod
 		this.poster = poster;
 	}
 
+	public long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
+	}
+
 	@Override
 	public String toString() {
-		return "Vod [id=" + id + ", introduce=" + introduce + ", name=" + name
-				+ ", vodType=" + vodType + ", detailType=" + detailType
-				+ ", artist=" + artist + ", particularDate=" + particularDate
-				+ ", poster=" + poster + "]";
+		return "Vod{" +
+				"vodType=" + vodType +
+				", detailType='" + detailType + '\'' +
+				", artist='" + artist + '\'' +
+				", particularDate='" + particularDate + '\'' +
+				", poster='" + poster + '\'' +
+				", duration=" + duration +
+				'}'+ super.toString();
 	}
-    
 }

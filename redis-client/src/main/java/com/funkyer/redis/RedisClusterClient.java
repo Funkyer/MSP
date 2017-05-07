@@ -25,8 +25,11 @@ public class RedisClusterClient implements InitializingBean
 			String[] hostAndPorts = redisCluster.split(";");
 			for(String hostAndPort : hostAndPorts)
 			{
-				String[] hp = hostAndPort.split(":");
-				clusterNode.add(new HostAndPort(hp[0], Integer.parseInt(hp[1])));
+				if(StringUtils.isNotBlank(hostAndPort))
+				{
+					String[] hp = hostAndPort.split(":");
+					clusterNode.add(new HostAndPort(hp[0], Integer.parseInt(hp[1])));
+				}
 			}
 		}
 		genJadisConfig();

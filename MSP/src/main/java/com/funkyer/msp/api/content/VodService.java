@@ -1,6 +1,5 @@
 package com.funkyer.msp.api.content;
 
-import com.funkyer.msp.api.dto.PlayVodRequest;
 import com.funkyer.msp.api.dto.PlayVodResponse;
 
 /**
