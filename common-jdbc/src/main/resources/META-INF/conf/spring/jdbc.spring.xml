@@ -50,7 +50,7 @@
 
     <tx:advice id="txAdvice" transaction-manager="transactionManger">
         <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED" timeout="5" />
             <tx:method name="*" rollback-for="Exception"/>
         </tx:attributes>
     </tx:advice>
