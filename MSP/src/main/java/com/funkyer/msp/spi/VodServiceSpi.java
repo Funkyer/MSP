@@ -1,6 +1,7 @@
 package com.funkyer.msp.spi;
 
-import com.funkyer.content.api.VodService;
+import com.funkyer.content.api.dto.GetVodByIdRequest;
+import com.funkyer.content.api.dto.GetVodByIdResponse;
 import com.funkyer.msp.api.dto.PlayVodResponse;
 
 
@@ -30,8 +31,11 @@ public class VodServiceSpi implements com.funkyer.msp.api.content.VodService
     {
     	
     	PlayVodResponse response = new PlayVodResponse();
-		Vod v = vodService.getVodById(id);
 
+        GetVodByIdRequest request = new GetVodByIdRequest();
+        request.setId(id);
+        GetVodByIdResponse resp = vodService.getVodById(request);
+        Vod v = resp.getVod();
 		if(null != v)
         {
             response.setArtist(v.getArtist());

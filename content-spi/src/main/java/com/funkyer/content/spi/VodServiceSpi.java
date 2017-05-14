@@ -1,5 +1,8 @@
 package com.funkyer.content.spi;
 
+import com.funkyer.common.domain.Result;
+import com.funkyer.content.api.dto.GetVodByIdRequest;
+import com.funkyer.content.api.dto.GetVodByIdResponse;
 import com.funkyer.content.spi.convert.VodConvert;
 import com.funkyer.jdbc.service.VodManage;
 import com.funkyer.content.api.VodService;
@@ -21,18 +24,17 @@ public class VodServiceSpi implements VodService {
     private RedisClient redisClient;
     private VodManage vodManage;
     @Override
-    public Vod getVodById(String id) {
+    public GetVodByIdResponse getVodById(GetVodByIdRequest request) {
 
-        if(logger.isDebugEnabled())
-        {
-            logger.debug("getVodById id = "+id);
-        }
-        Vod vod = (Vod)redisClient.get(id);
+        GetVodByIdResponse response = new GetVodByIdResponse();
+        Result result = new Result();
+        response.setResult(result);
+        Vod vod = (Vod)redisClient.get(request.getId());
 
         if(null == vod)
         {
             com.funkyer.jdbc.domain.Vod v = new com.funkyer.jdbc.domain.Vod();
-            v.setId(id);
+            v.setId(request.getId());
             List<Object> vods  = vodManage.query(v);
             if(CollectionUtils.isEmpty(vods))
             {
@@ -43,10 +45,11 @@ public class VodServiceSpi implements VodService {
                 v = (com.funkyer.jdbc.domain.Vod)vods.get(0);
                 vod = VodConvert.convert2ServiceDomain(v);
 
-                redisClient.set(id,vod);
+                redisClient.set(request.getId(),vod);
             }
         }
-        return vod;
+        response.setVod(vod);
+        return response;
     }
 
     @Override
