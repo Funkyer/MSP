@@ -27,6 +27,10 @@
 	    delete from t_vod where id=#id#
 	</delete>
 
+     <update id="VodUpdateSQL" parameterClass="vod">
+		 UPDATE t_vod SET name=#name#,vodType=#vodType#,introduce=#introduce#,detailType=#detailType#,artist=#artist#,particularDate=#particularDate#,poster=#poster#,duration=#duration# where id=#id#
+	 </update>
+
 	<select id="VodQuerySQL" parameterClass="vod" resultMap="vodRecord">
 	    select id,name,vodType,introduce,detailType,artist,particularDate,poster,duration from t_vod where id=#id#
 	</select>

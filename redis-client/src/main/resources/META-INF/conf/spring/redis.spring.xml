@@ -7,8 +7,8 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <!--另外一种导入配置文件方法
-   <content:property-placeholder location="classpath*:/config/redis.properties"/> -->
+    <!--另外一种导入配置文件方法 -->
+   <content:property-placeholder location="classpath*:META-INF/config/redis.properties"/>
 
     <bean id="redis.RedisClusterClient" class="com.funkyer.redis.RedisClusterClient">
         <property name="redisCluster" value="${redis.cluster}"/>

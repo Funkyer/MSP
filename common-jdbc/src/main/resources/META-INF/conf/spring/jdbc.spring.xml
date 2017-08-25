@@ -13,12 +13,10 @@
          http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath*:/META-INF/jdbc.properties</value>
-                <value>classpath*:/META-INF/config/redis.properties</value>
             </list>
         </property>
     </bean>
@@ -41,6 +39,10 @@
         <property name="sqlMapClient" ref="sqlMapClient"/>
     </bean>
     <bean id="jdbc.VodManage" class="com.funkyer.jdbc.service.VodManage">
+        <property name="jdbcTemplate" ref="jdbc.JdbcTemplate"/>
+    </bean>
+
+    <bean id="jdbc.MediaManage" class="com.funkyer.jdbc.service.MediaManage">
         <property name="jdbcTemplate" ref="jdbc.JdbcTemplate"/>
     </bean>
 

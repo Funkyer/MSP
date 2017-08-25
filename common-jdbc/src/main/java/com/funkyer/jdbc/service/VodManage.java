@@ -31,6 +31,11 @@ public class VodManage {
 		return jdbcTemplate.query(Contants.VodSQL.VodQuerySQL, vod);
 	}
 
+	public void update(Vod vod)
+	{
+		jdbcTemplate.update(Contants.VodSQL.VodUpdateSQL,vod);
+	}
+
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
