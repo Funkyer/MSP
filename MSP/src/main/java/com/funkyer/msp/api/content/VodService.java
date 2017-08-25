@@ -1,6 +1,5 @@
 package com.funkyer.msp.api.content;
 
-import com.funkyer.msp.api.dto.PlayVodRequest;
 import com.funkyer.msp.api.dto.PlayVodResponse;
 
 /**
@@ -13,5 +12,6 @@ public interface VodService
      * @param request
      * @return PlayVodResponse
      */
-    public PlayVodResponse play(PlayVodRequest request);
+    public PlayVodResponse play(String id);
+    
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:content="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+   <bean id="funkyer.vodService" class="com.funkyer.content.spi.VodServiceSpi">
+       <property name="redisClient" ref="funkyer.vod.redisClient"/>
+       <property name="vodManage" ref="jdbc.VodManage"/>
+   </bean>
+    <bean id="funkyer.vod.redisClient" class="com.funkyer.redis.RedisClient">
+        <property name="prefix" value="vd"/>
+        <property name="redisClusterClient" ref="redis.RedisClusterClient"/>
+    </bean>
+</beans>

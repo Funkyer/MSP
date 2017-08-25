@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apo="http://www.springframework.org/schema/aop" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="content.loggingIntercept" class="com.funkyer.content.spi.intercept.LoggingIntercept">
+    </bean>
+    <aop:config>
+        <apo:pointcut id="logPointcut" expression="execution(* com.funkyer.content.api.*.*(..))"/>
+        <apo:advisor advice-ref="content.loggingIntercept" pointcut-ref="logPointcut"/>
+    </aop:config>
+</beans>

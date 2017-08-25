@@ -6,10 +6,10 @@ CREATE SCHEMA IF NOT EXISTS `msp` DEFAULT CHARACTER SET utf8 COLLATE utf8_genera
 USE `msp` ;
 
 -- -----------------------------------------------------
--- Table `msp`.`t_content`
+-- Table `msp`.`t_vod`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `msp`.`t_content` (
-  `id` VARCHAR(128) NOT NULL ,
+CREATE  TABLE IF NOT EXISTS `msp`.`t_vod` (
+  `id` INT NOT NULL ,
   `name` VARCHAR(128) NOT NULL ,
   `introduce` VARCHAR(256) NULL ,
   `lang` VARCHAR(45) NULL ,
@@ -18,6 +18,7 @@ CREATE  TABLE IF NOT EXISTS `msp`.`t_content` (
   `artist` VARCHAR(45) NULL ,
   `particularDate` VARCHAR(45) NULL ,
   `poster` VARCHAR(256) NULL ,
+  `duration` MEDIUMTEXT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `T_CONTENT_ARTIST_INDEX` (`artist` ASC) )
 ENGINE = InnoDB;

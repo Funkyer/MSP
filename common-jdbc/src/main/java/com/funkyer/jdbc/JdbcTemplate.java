@@ -7,6 +7,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 /**
  * Created by dell on 17-4-4.
  */
+
 public class JdbcTemplate extends SqlMapClientDaoSupport 
 {
 	

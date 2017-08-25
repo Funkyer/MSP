@@ -5,5 +5,7 @@ package com.funkyer.qiniu.service;
  */
 public interface QiniuService
 {
+    public String getUrl(String name,String bucket);
+
 
 }
