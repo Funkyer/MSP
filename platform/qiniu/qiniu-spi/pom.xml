@@ -8,7 +8,11 @@
     <artifactId>qiniu-spi</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
+    <parent>
+        <groupId>com.funkyer.parent</groupId>
+        <artifactId>msp.parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 <dependencies>
     <dependency>
         <groupId>com.funkyer</groupId>
