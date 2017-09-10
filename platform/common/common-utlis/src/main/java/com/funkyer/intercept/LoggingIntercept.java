@@ -1,4 +1,4 @@
-package com.funkyer.msp.intercept;
+package com.funkyer.intercept;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 /**
  * Created by dell on 2017/5/7.
@@ -64,6 +63,9 @@ public class LoggingIntercept implements MethodInterceptor {
     }
 
     private String printObject(Object object){
+        if(null == object){
+            return null;
+        }
         Class cl = object.getClass();
         Field[] fields = cl.getDeclaredFields();
         StringBuffer stringBuffer = new StringBuffer(64);

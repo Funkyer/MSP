@@ -7,7 +7,7 @@
          http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="content.loggingIntercept" class="com.funkyer.content.spi.intercept.LoggingIntercept">
+    <bean id="content.loggingIntercept" class="com.funkyer.intercept.LoggingIntercept">
     </bean>
     <aop:config>
         <apo:pointcut id="logPointcut" expression="execution(* com.funkyer.content.api.*.*(..))"/>
