@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.funkyer</groupId>
-	<artifactId>common-jdbc</artifactId>
+	<artifactId>MSM-api</artifactId>
 	<version>1.0-SNAPSHOT</version>
     <parent>
         <groupId>com.funkyer.parent</groupId>
@@ -22,6 +22,21 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.41</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.3.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.3.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.0.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
