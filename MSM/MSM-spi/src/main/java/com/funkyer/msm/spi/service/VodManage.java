@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.funkyer.jdbc.service;
+package com.funkyer.msm.spi.service;
 
 import java.util.List;
 
-import com.funkyer.jdbc.JdbcTemplate;
-import com.funkyer.jdbc.common.Contants;
-import com.funkyer.jdbc.domain.Vod;
+import com.funkyer.msm.spi.domain.Vod;
+import com.funkyer.msm.spi.JdbcTemplate;
+import com.funkyer.msm.spi.common.Contants;
 
 /**
  * @author dell

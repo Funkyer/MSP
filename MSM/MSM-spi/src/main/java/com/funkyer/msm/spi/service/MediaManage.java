@@ -1,9 +1,8 @@
-package com.funkyer.jdbc.service;
+package com.funkyer.msm.spi.service;
 
-import com.funkyer.jdbc.JdbcTemplate;
-import com.funkyer.jdbc.common.Contants;
-import com.funkyer.jdbc.domain.Media;
-import com.funkyer.jdbc.domain.Vod;
+import com.funkyer.msm.spi.JdbcTemplate;
+import com.funkyer.msm.spi.common.Contants;
+import com.funkyer.msm.spi.domain.Media;
 
 import java.util.List;
 

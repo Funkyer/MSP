@@ -1,4 +1,4 @@
-package com.funkyer.jdbc.domain;
+package com.funkyer.msm.spi.domain;
 
 /**
  * Created by dell on 2017/5/7.

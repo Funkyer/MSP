@@ -13,7 +13,8 @@
     <relativePath>../parent</relativePath>
     </parent>
 <modules>
-	<module>MSM-api</module>
+    <module>MSM-api</module>
+    <module>MSM-spi</module>
 </modules>
 
 </project>

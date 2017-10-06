@@ -1,4 +1,4 @@
-package com.funkyer.jdbc;
+package com.funkyer.msm.spi;
 
 import java.util.List;
 

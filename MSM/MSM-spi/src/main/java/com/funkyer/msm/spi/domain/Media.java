@@ -1,4 +1,4 @@
-package com.funkyer.jdbc.domain;
+package com.funkyer.msm.spi.domain;
 
 import java.io.Serializable;
 
