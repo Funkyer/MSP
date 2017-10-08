@@ -4,6 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:/META-INF/conf/spring/msp.dubbo.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="msp.vodServiceSpi" class="com.funkyer.msp.spi.VodServiceSpi">
     </bean>
 </beans>
