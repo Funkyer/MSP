@@ -11,7 +11,7 @@
     lazyLoadingEnabled="true" 
     maxSessions="20" />
 
-    <sqlMap resource="com/funkyer/jdbc/domain/vod.xml" />
-    <sqlMap resource="com/funkyer/jdbc/domain/media.xml"/>
+    <sqlMap resource="com/funkyer/msm/spi/xml/vod.xml" />
+    <sqlMap resource="com/funkyer/msm/spi/xml/media.xml"/>
 
 </sqlMapConfig>

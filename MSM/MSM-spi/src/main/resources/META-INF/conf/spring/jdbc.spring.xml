@@ -34,16 +34,16 @@
         </property>
     </bean>
     
-    <bean id="jdbc.JdbcTemplate" class="com.funkyer.jdbc.JdbcTemplate" >
+    <bean id="msm.JdbcTemplate" class="com.funkyer.msm.spi.JdbcTemplate" >
         <property name="dataSource" ref="dataSource"/>
         <property name="sqlMapClient" ref="sqlMapClient"/>
     </bean>
-    <bean id="jdbc.VodManage" class="com.funkyer.jdbc.service.VodManage">
-        <property name="jdbcTemplate" ref="jdbc.JdbcTemplate"/>
+    <bean id="msm.VodManage" class="com.funkyer.msm.spi.service.VodManageSpi">
+        <property name="jdbcTemplate" ref="msm.JdbcTemplate"/>
     </bean>
 
-    <bean id="jdbc.MediaManage" class="com.funkyer.jdbc.service.MediaManage">
-        <property name="jdbcTemplate" ref="jdbc.JdbcTemplate"/>
+    <bean id="msm.MediaManage" class="com.funkyer.msm.spi.service.MediaManageSpi">
+        <property name="jdbcTemplate" ref="msm.JdbcTemplate"/>
     </bean>
 
     <bean id="transactionManger" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

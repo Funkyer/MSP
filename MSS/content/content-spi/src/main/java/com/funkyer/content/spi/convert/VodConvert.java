@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class VodConvert {
 
-    public static  Vod convert2ServiceDomain(com.funkyer.jdbc.domain.Vod vod)
+    public static  Vod convert2ServiceDomain(com.funkyer.msm.api.domain.Vod vod)
     {
         Vod v = new Vod();
         v.setArtist(vod.getArtist());

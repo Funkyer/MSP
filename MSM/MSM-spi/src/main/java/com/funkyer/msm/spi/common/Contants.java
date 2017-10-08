@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.funkyer.jdbc.common;
+package com.funkyer.msm.spi.common;
 
 /**
  * @author dell
