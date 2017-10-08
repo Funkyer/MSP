@@ -9,7 +9,7 @@
 
    <bean id="funkyer.vodService" class="com.funkyer.content.spi.VodServiceSpi">
        <property name="redisClient" ref="funkyer.vod.redisClient"/>
-       <property name="vodManage" ref="jdbc.VodManage"/>
+       <property name="vodManage" ref="msm.VodManage"/>
    </bean>
     <bean id="funkyer.vod.redisClient" class="com.funkyer.redis.RedisClient">
         <property name="prefix" value="vd"/>
