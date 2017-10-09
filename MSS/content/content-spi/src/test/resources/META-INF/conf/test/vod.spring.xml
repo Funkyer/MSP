@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/META-INF/conf/test/msp.dubbo.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="${dubbo.applicationName}" />
+
+    <!-- 使用zookeeper广播注册中心暴露服务地址 -->
+    <dubbo:registry protocol="${dubbo.registryProtocol}" address="${dubbo.registryAddress}" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}" />
+    <!-- <dubbo: protocol="registry"></dubbo:monitor> -->
+
+    <dubbo:reference interface="com.funkyer.msm.api.VodManage" id="msm.VodManage" timeout="${dubbo.timeOut}"
+                     version="${dubbo.version}" retries="${dubbo.retries}" group="${dubbo.group}"/>
+
+    <dubbo:reference interface="com.funkyer.msm.api.MediaManage" id="msm.MediaManage" timeout="${dubbo.timeOut}"
+                     group="${dubbo.group}" retries="${dubbo.retries}" version="${dubbo.version}" />
+</beans>
