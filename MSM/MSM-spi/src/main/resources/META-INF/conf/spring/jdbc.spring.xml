@@ -58,7 +58,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <apo:pointcut id="jdbcPointcut" expression="execution(* com.funkyer.jdbc.*.*(..))"/>
+        <apo:pointcut id="jdbcPointcut" expression="execution(* com.funkyer.msm.*.*(..))"/>
         <apo:advisor advice-ref="txAdvice" pointcut-ref="jdbcPointcut"/>
     </aop:config>
 </beans>
