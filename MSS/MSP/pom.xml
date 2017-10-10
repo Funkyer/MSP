@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.funkyer</groupId>
 	<artifactId>MSP</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<parent>
 		<groupId>com.funkyer.parent</groupId>
@@ -68,8 +68,23 @@
 			<version>1.8.9</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<finalName>MSP</finalName>
 
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/main/assemble/package.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
