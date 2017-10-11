@@ -1,5 +1,4 @@
-<assembly xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+<assembly>
     <id>package</id>
     <formats>
         <format>zip</format>
@@ -7,14 +6,40 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>../../../../deploy/config/basic/log4j.properties</directory>
+            <directory>${project.basedir}/../../deploy/config/basic</directory>
             <outputDirectory>conf</outputDirectory>
+            <includes>
+                <include>log4j.properties</include>
+            </includes>
         </fileSet>
-
+        <fileSet>
+            <directory>${project.basedir}/../../deploy/config</directory>
+            <outputDirectory>conf</outputDirectory>
+            <includes>
+                <include>redis.properties</include>
+                <include>msp.dubbo.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/webapp/</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>index.jsp</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/webapp/WEB-INF/</directory>
+            <outputDirectory>WEB-INF</outputDirectory>
+            <includes>
+                <include>msp-servlet.xml</include>
+                <include>web.xml</include>
+                <include>log4j.properties</include>
+            </includes>
+        </fileSet>
     </fileSets>
     <dependencySets>
         <dependencySet>
-            <outputDirectory>lib</outputDirectory>
+            <outputDirectory>WEB-INF/lib</outputDirectory>
             <scope>runtime</scope>
         </dependencySet>
     </dependencySets>
