@@ -11,6 +11,7 @@
 	<module>platform</module>
 	<module>MSM</module>
 	<module>MSS</module>
+	<module>platform/kafka</module>
 </modules>
 
 </project>
