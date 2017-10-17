@@ -27,9 +27,10 @@ public class KafkaProducer extends Thread
         Properties properties = new Properties();
         properties.put("zookeeper.connect", "192.168.1.102:2181");//声明zk
         properties.put("serializer.class", StringEncoder.class.getName());
-        properties.put("metadata.broker.list", "localhost:9092,192.168.1.103:9092");// 声明kafka broker
+        properties.put("metadata.broker.list", "92.168.1.102:9092,192.168.1.103:9092,192.168.1.103:9093");// 声明kafka broker
 //        properties.put("partitioner.class","com.funkyer.kafka.test.CidPartitioner");
         properties.put("producer.type", "sync");
+        properties.put("key.deserializer","org.apache.kafka.common.serialization.IntegerDeserializer");
         return new Producer<Integer, String>(new ProducerConfig(properties));
 
     }
@@ -44,7 +45,7 @@ public class KafkaProducer extends Thread
 
             List<KeyedMessage<String, String>> messageList = new ArrayList<KeyedMessage<String, String>>();
 
-                messageList.add(new KeyedMessage<String, String>(topic,String.valueOf(z), "message: " + i++));
+                messageList.add(new KeyedMessage<String, String>(topic,z+"",z+"w", "message: " + i++));
             producer.send(messageList);
         }
             try {
@@ -56,6 +57,6 @@ public class KafkaProducer extends Thread
     }
 
     public static void main(String[] args) {
-        new KafkaProducer("test2").start();
+        new KafkaProducer("test").start();
     }
 }
