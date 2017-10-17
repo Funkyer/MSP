@@ -15,7 +15,8 @@
 <modules>
 	<module>common</module>
 	<module>qiniu</module>
-	<module>redis-client</module>
+    <module>redis-client</module>
+    <module>kafka</module>
 </modules>
 
 </project>
