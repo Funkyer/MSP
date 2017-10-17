@@ -20,7 +20,7 @@ public class KafkaConsumerThread implements Runnable{
         while (it.hasNext()) {
             MessageAndMetadata<byte[], byte[]> mam = it.next();
             System.out.println(Thread.currentThread().getName() + ": partition[" + mam.partition() + "],"
-                    + "offset[" + mam.offset() + "], " + new String(mam.message()));
+                    + "offset[" + mam.offset() + "], " + "key="+new String(mam.key())+"----"+new String(mam.message()));
 
         }
     }
