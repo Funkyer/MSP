@@ -11,6 +11,10 @@ import java.io.Serializable;
  */
 public class KeyMessage implements Serializable
 {
+    public KeyMessage()
+    {
+
+    }
     public KeyMessage(String name,int age)
     {
         this.name = name;

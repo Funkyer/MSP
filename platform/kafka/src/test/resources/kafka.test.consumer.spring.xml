@@ -54,7 +54,7 @@
                                 consumer-properties="consumerProperties">
         <int-kafka:consumer-configurations>
             <int-kafka:consumer-configuration
-                    group-id="default" value-decoder="kafkaMessageDecoder" key-decoder="kafkaDecoder"
+                    group-id="consumer1" value-decoder="kafkaMessageDecoder" key-decoder="kafkaDecoder"
                     max-messages="5000">
                 <!-- 两个TOPIC配置 -->
                 <int-kafka:topic id="test"  streams="4" />

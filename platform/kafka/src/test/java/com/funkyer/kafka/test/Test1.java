@@ -26,8 +26,9 @@ public class Test1
             System.out.println("输入 name 和 age");
             String name = scanner.next();
             int age = scanner.nextInt();
-//            String topic = scanner.next();
-            service.sendUserInfo("test",new KeyMessage(name,age));
+            String sex = scanner.next();
+
+            service.sendUserInfo("test",new BMessage(name,age,sex));
         }
 
     }
