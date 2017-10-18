@@ -7,20 +7,9 @@ package com.funkyer.kafka.service;
 /**
  * 发送kafka消息
  */
-public class KafkaProducer
+public interface KafkaProducer
 {
 
-    private String topic;
-
-
-
-    public void sendMessage(KeyMessage message)
-    {
-
-    }
-
-
-
-
+    public void sendMessage(String topic, KeyMessage message);
 
 }

@@ -1,16 +1,17 @@
 package com.funkyer.kafka.service;
 
+import java.util.Collection;
+
 /**
  * Created by liushi on 17/10/16.
  */
 public interface SubscribeKafkaMessage
 {
     /**
-     * 订阅topic消息
-     * @param topic
+     * 订阅topic消息 返回订阅topic
      */
-    public void subscribe(String topic);
+    public String subscribe();
 
-    public void consumeMessage(KeyMessage message);
+    public void consumeMessage(Collection<KeyMessage>  messages);
 
 }

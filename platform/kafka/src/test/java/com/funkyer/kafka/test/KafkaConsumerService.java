@@ -19,11 +19,12 @@ public class KafkaConsumerService
             LinkedHashMap<Integer, KeyMessage> messages = (LinkedHashMap<Integer, KeyMessage>) entry.getValue();
             Set<Integer> keys = messages.keySet();
             for (Integer i : keys)
-                logger.info("======Partition:" + i);
+                logger.debug("======Partition:" + i);
             Collection<KeyMessage> values = messages.values();
             for (Iterator<KeyMessage> iterator = values.iterator(); iterator.hasNext();) {
-                String message = "["+iterator.next().toString()+"]";
-                logger.info("=====message:" + message);
+                KeyMessage message = iterator.next();
+
+                logger.info("=====mmm:" + message.toString());
 //                List<UserDto> userList = JSON.parseArray(message, UserDto.class);
 //                logger.info("=====userList.size:" + userList.size());
 
