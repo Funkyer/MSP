@@ -2,7 +2,7 @@ package com.funkyer.kafka.service.impl;
 
 
 import com.funkyer.kafka.service.KafkaProducer;
-import com.funkyer.kafka.service.KeyMessage;
+import com.funkyer.kafka.KeyMessage;
 import org.springframework.integration.kafka.support.KafkaHeaders;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;

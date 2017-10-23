@@ -1,5 +1,7 @@
 package com.funkyer.kafka.service;
 
+import com.funkyer.kafka.KeyMessage;
+
 import java.util.Collection;
 
 /**

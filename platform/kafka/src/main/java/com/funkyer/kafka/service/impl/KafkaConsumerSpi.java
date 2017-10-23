@@ -1,8 +1,7 @@
 package com.funkyer.kafka.service.impl;
 
-import com.funkyer.kafka.service.KeyMessage;
+import com.funkyer.kafka.KeyMessage;
 import com.funkyer.kafka.service.SubscribeKafkaMessage;
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -10,8 +9,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by liushi on 17/10/18.
@@ -40,7 +37,7 @@ public class KafkaConsumerSpi implements BeanFactoryPostProcessor
                 }
                 else
                 {
-                    Map<String , SubscribeKafkaMessage> kafkaMessageMap = new HashedMap();
+                    Map<String , SubscribeKafkaMessage> kafkaMessageMap = new HashMap<>();
                     kafkaMessageMap.put(entry.getKey(),entry.getValue());
                     subscribeKafkaMessageMap.put(topic,kafkaMessageMap);
                 }
