@@ -15,4 +15,11 @@ public class GetVodByIdResponse extends BaseResponse
     public void setVod(Vod vod) {
         this.vod = vod;
     }
+
+    @Override
+    public String toString() {
+        return "GetVodByIdResponse{" +
+                "vod=" + vod +
+                '}'+ super.toString();
+    }
 }

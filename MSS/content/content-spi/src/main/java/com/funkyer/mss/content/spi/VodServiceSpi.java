@@ -38,7 +38,7 @@ public class VodServiceSpi implements VodService {
             List<Object> vods  = vodManage.query(v);
             if(CollectionUtils.isEmpty(vods))
             {
-                return null;
+                return response;
             }
             else
             {

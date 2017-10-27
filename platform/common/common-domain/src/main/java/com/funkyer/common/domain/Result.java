@@ -41,4 +41,12 @@ public class Result implements Serializable
     public void setRetMsg(String retMsg) {
         this.retMsg = retMsg;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "retCode='" + retCode + '\'' +
+                ", retMsg='" + retMsg + '\'' +
+                '}';
+    }
 }
