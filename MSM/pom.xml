@@ -13,8 +13,9 @@
     <relativePath>../parent</relativePath>
     </parent>
 <modules>
-    <module>MSM-api</module>
-    <module>MSM-spi</module>
+    <module>jdbc-template</module>
+    <module>content</module>
+    <module>MMP</module>
 </modules>
 
 </project>
