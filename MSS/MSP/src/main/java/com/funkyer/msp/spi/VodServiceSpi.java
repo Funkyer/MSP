@@ -24,7 +24,7 @@ public class VodServiceSpi implements com.funkyer.msp.api.content.VodService
     private static Logger logger = Logger.getLogger(VodServiceSpi.class);
 
     @Resource(name = "funkyer.vodService")
-	private com.funkyer.content.api.VodService vodService;
+	private com.funkyer.mss.content.api.VodService vodService;
 	
     @RequestMapping(value="/PlayVod/{id}",method=RequestMethod.GET)
     @ResponseBody
