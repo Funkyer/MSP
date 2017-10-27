@@ -1,11 +1,11 @@
 package com.funkyer.msp.spi;
 
-import com.funkyer.content.api.dto.GetVodByIdRequest;
-import com.funkyer.content.api.dto.GetVodByIdResponse;
+import com.funkyer.mss.content.api.dto.GetVodByIdRequest;
+import com.funkyer.mss.content.api.dto.GetVodByIdResponse;
 import com.funkyer.msp.api.dto.PlayVodResponse;
 
 
-import com.funkyer.content.domain.Vod;
+import com.funkyer.mss.content.domain.Vod;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,7 +55,7 @@ public class VodServiceSpi implements com.funkyer.msp.api.content.VodService
         return response;
     }
 
-	public void setVodService(com.funkyer.content.api.VodService vodService) {
+	public void setVodService(com.funkyer.mss.content.api.VodService vodService) {
 		this.vodService = vodService;
 	}
 }
