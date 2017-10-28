@@ -31,7 +31,7 @@
             <directory>${project.basedir}/src/main/webapp/WEB-INF/</directory>
             <outputDirectory>WEB-INF</outputDirectory>
             <includes>
-                <include>msm-servlet.xml</include>
+                <include>mmp-servlet.xml</include>
                 <include>web.xml</include>
                 <include>log4j.properties</include>
             </includes>
