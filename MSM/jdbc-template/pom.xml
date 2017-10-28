@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>com.funkyer.msm</groupId>
-            <artifactId>content-api</artifactId>
+            <artifactId>msm-content-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
